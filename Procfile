@@ -1,2 +1,3 @@
-web: gunicorn --timeout 220 --workers=3 backend:app
+web: gunicorn --worker-class=gevent --worker-connections=1000 --workers=3 app:app
+
 
