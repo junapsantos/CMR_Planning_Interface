@@ -130,7 +130,7 @@ uploadButton.addEventListener('click', function() {
 const guideButton = document.querySelector('#guideButton');
 
 // URL of the PDF file
-const pdfUrl = '../assets/pdf/CMR_guide.pdf';
+const pdfUrl = 'CMR_Planning_Guide.pdf';
 
 // Event listener for the button click
 guideButton.addEventListener('click', function() {
