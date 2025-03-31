@@ -251,14 +251,18 @@ def load_image(file_path):
                 break
         if img is None:
             raise ValueError("No valid image found in the DICOM file.")
-    elif file_path.endswith(".npy"): 
+        
+        #img = np.memmap(img, dtype='float32', mode='r')  # Memory map the image array
+
+    elif file_path.endswith(".npy"):  # .npy File
         data = np.load(file_path, allow_pickle=True)
         img = extract_image(data)
-    elif file_path.endswith(".mat"):  
+
+    elif file_path.endswith(".mat"):  # .mat File
         mat_contents = sio.loadmat(file_path)
         img = extract_image(mat_contents)
-    
-    # ensure image is at least 3D
+        
+    # Ensure image is at least 3D
     if img is not None and img.ndim == 2:
         img = np.expand_dims(img, axis=-1)  # Convert 2D to 3D by adding depth dimension
     elif img is None or img.ndim > 3:
