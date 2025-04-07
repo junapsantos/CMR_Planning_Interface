@@ -17,31 +17,51 @@
     <p>Upload a file containing a 3D MRI to view standard oblique views.</p>
   </header>
 
-  <!-- Upload Form placed in its own section -->
-  <section id="upload-section">
-    <form id="uploadForm" enctype="multipart/form-data">
-      <input type="file" id="dicomFile" name="dicom_file" accept=".dcm,.npy,.mat">
-      <button type="submit">Upload</button>
-      <span class="info-icon" title="Accepted formats: DICOM (.dcm), NumPy (.npy), MATLAB (.mat)">&#8505;</span>
-    </form>
-  </section>
+  <!-- Wrap main content in content-wrapper -->
+  <div class="content-wrapper">
+    <!-- Upload Form placed in its own section -->
+    <section id="upload-section">
+      <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="dicomFile" name="dicom_file" accept=".dcm,.npy,.mat">
+        <button type="submit">Upload</button>
+        <span class="info-icon" title="Accepted formats: DICOM (.dcm), NumPy (.npy), MATLAB (.mat)">&#8505;</span>
+      </form>
+    </section>
 
-  <!-- Loading indicator -->
-  <div id="loading">
-    <p>Processing...</p>
+    <!-- Loading indicator -->
+    <div id="loading">
+      <p>Processing...</p>
+    </div>
+
+    <section id="plot2D-section" style="display: none;">
+      <h2>Standard Cardiac Views</h2>
+      <p> (Click on any legend item to toggle the visibility of the corresponding intersecting line.)</p>
+      
+      <!-- Button for the PDF Link -->
+      <button id="guideButton" title="Guidelines for CMR planning" class="guide-btn">
+        <i class="fas fa-book"></i> View Planning Guideline
+      </button>
+    
+      <div id="plot2DContainer"></div>
+    </section>
   </div>
 
-  <section id="plot2D-section" style="display: none;">
-    <h2>Standard Cardiac Views</h2>
-    <p> (Click on any legend item to toggle the visibility of the corresponding intersecting line.)</p>
-    
-    <!-- Button for the PDF Link -->
-    <button id="guideButton" title="Guidelines for CMR planning" class="guide-btn">
-      <i class="fas fa-book"></i> View Planning Guideline
-    </button>
-  
-    <div id="plot2DContainer"></div>
-  </section>
+  <footer>
+    <div class="footer-content">
+      <div class="author-section">
+        <h3>Authors</h3>
+        <p>Juna Santos</p>
+      </div>
+      <div class="correspondence-section">
+        <h3>Correspondence</h3>
+        <p>For questions regarding this tool, please contact:</p>
+        <p><a href="mailto:junapsantos@tecnico.ulisboa.pt">junapsantos@tecnico.ulisboa.pt</a></p>
+      </div>
+      <div class="copyright-section">
+        <p>&copy; 2025 Cardiac MRI Standard View Planner. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Disclosure Modal -->
   <div id="disclosureModal" class="modal">
